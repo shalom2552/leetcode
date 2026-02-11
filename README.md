@@ -1,4 +1,4 @@
-# 🚀 LeetCode Portfolio
+# LeetCode Portfolio
 
 A collection of my accepted LeetCode solutions. Focused on efficient algorithms, data structures, and clean code standards.
 
@@ -6,7 +6,7 @@ A collection of my accepted LeetCode solutions. Focused on efficient algorithms,
   <img src="https://leetcard.jacoblin.cool/shalom2552?theme=tokyonight&font=baloo_2&ext=heatmap" width="100%" alt="LeetCode Stats" />
 </p>
 
-## 📚 Solutions
+## Solutions
 | # | Problem | Solution | Difficulty |
 |---|---|---|---|
 | 1 | [Two Sum](https://leetcode.com/problems/two-sum) | [py](0001-two-sum/0001-two-sum.py) | ![](https://img.shields.io/badge/-Easy-green) |
