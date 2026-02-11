@@ -31,7 +31,7 @@ jobs:
         GITHUB_USER = 'shalom2552'
         
         # --- 1. Header & Stats ---
-        header = f'''# 🚀 LeetCode Portfolio
+        header = f'''# LeetCode Portfolio
 
         A collection of my accepted LeetCode solutions. Focused on efficient algorithms, data structures, and clean code standards.
 
@@ -39,7 +39,7 @@ jobs:
           <img src=\"https://leetcard.jacoblin.cool/{GITHUB_USER}?theme=tokyonight&font=baloo_2&ext=heatmap\" width=\"100%\" alt=\"LeetCode Stats\" />
         </p>
 
-        ## 📚 Solutions
+        ## Solutions
         | # | Problem | Solution | Difficulty |
         |---|---|---|---|
         '''
