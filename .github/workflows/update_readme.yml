@@ -141,6 +141,6 @@ jobs:
         git config --global user.name "GitHub Action"
         git config --global user.email "action@github.com"
         git add README.md
-        git commit -m "Fix layout and non-breaking labels" || exit 0
+        docs: auto-update README with latest solutions
         git pull --rebase origin main
         git push
