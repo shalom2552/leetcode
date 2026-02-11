@@ -33,4 +33,8 @@ Focused on efficient algorithms, data structures, and clean code standards.
 |  |
 | ------- |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/shalom2552/leetcode/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
+## Math
+|  |
+| ------- |
+| [0009-palindrome-number](https://github.com/shalom2552/leetcode/tree/master/0009-palindrome-number) |
 <!---LeetCode Topics End-->
