@@ -11,15 +11,3 @@ A collection of my accepted LeetCode solutions. Focused on efficient algorithms,
 |---|---|---|---|
 | 9 | [Palindrome Number](https://leetcode.com/problems/palindrome-number) | [Code](0009-palindrome-number/0009-palindrome-number.cpp) | ![](https://img.shields.io/badge/-Easy-green) |
 | 108 | [Convert Sorted Array To Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree) | [Code](0108-convert-sorted-array-to-binary-search-tree/0108-convert-sorted-array-to-binary-search-tree.cpp) | ![](https://img.shields.io/badge/-Easy-green) |
-
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Array
-|  |
-| ------- |
-| [0238-product-of-array-except-self](https://github.com/shalom2552/leetcode/tree/master/0238-product-of-array-except-self) |
-## Prefix Sum
-|  |
-| ------- |
-| [0238-product-of-array-except-self](https://github.com/shalom2552/leetcode/tree/master/0238-product-of-array-except-self) |
-<!---LeetCode Topics End-->
