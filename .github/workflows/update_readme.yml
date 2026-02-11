@@ -1,0 +1,79 @@
+name: Update Readme Table
+on:
+  push:
+    branches: [ main, master ]  # Runs whenever code is pushed
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Generate Pretty Table
+      run: |
+        python3 -c "
+        import os
+        import urllib.parse
+
+        # Configuration
+        GITHUB_USER = 'shalom2552'
+        REPO_NAME = '${{ github.event.repository.name }}'
+        
+        # Header with your Stats Card
+        readme_content = f'''# 🚀 LeetCode Portfolio
+        
+        <p align=\"center\">
+          <img src=\"https://leetcard.jacoblin.cool/{GITHUB_USER}?theme=tokyonight&font=baloo_2&ext=heatmap\" width=\"100%\" />
+        </p>
+
+        ## 📚 Solutions
+        | # | Problem | Solution | Difficulty |
+        |---|---|---|---|
+        '''
+
+        # Scan directories to build the table
+        problems = []
+        for root, dirs, files in os.walk('.'):
+            for file in files:
+                if file.endswith('.cpp'):
+                    # Assuming LeetHub folder structure: Difficulty/ProblemName/Solution.cpp
+                    path_parts = root.split(os.sep)
+                    if len(path_parts) >= 2:
+                        difficulty = path_parts[1] # e.g., 'Medium'
+                        problem_name = path_parts[-1] # e.g., '1-Two-Sum'
+                        
+                        # Clean up names
+                        display_name = problem_name.replace('-', ' ').title()
+                        file_path = os.path.join(root, file)
+                        url_path = urllib.parse.quote(file_path)
+                        
+                        # Set Badge Color
+                        badge_color = 'green' if difficulty == 'Easy' else 'orange' if difficulty == 'Medium' else 'red'
+                        badge = f'![](https://img.shields.io/badge/-{difficulty}-{badge_color})'
+
+                        problems.append(f'| 📝 | [{display_name}](https://leetcode.com/problems/{problem_name.lower()}) | [Code]({url_path}) | {badge} |')
+
+        problems.sort() # Sort by name (or you can add logic to sort by ID)
+        readme_content += '\\n'.join(problems)
+
+        # Write to README.md
+        with open('README.md', 'w') as f:
+            f.write(readme_content)
+        "
+
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name "GitHub Action"
+        git config --global user.email "action@github.com"
+        git add README.md
+        git commit -m "Auto-update README with pretty table" || exit 0
+        git push
