@@ -2,6 +2,7 @@
 
 A collection of my accepted LeetCode solutions. Focused on efficient algorithms, data structures, and clean code standards.
 
+## Live Stats
 <p align="center">
   <img src="https://leetcard.jacoblin.cool/shalom2552?theme=tokyonight&font=baloo_2&ext=heatmap" width="100%" alt="LeetCode Stats" />
 </p>
