@@ -1,7 +1,7 @@
 name: Update Readme Table
 on:
   push:
-    branches: [ main, master ]  # Runs whenever code is pushed
+    branches: [ main, master ]
 
 permissions:
   contents: write
@@ -18,21 +18,22 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Generate Pretty Table
+    - name: Generate Readme
       run: |
         python3 -c "
         import os
         import urllib.parse
+        import re
 
-        # Configuration
         GITHUB_USER = 'shalom2552'
-        REPO_NAME = '${{ github.event.repository.name }}'
         
-        # Header with your Stats Card
-        readme_content = f'''# 🚀 LeetCode Portfolio
-        
+        # --- 1. The Header (Includes Stats & Your Text) ---
+        header = f'''# 🚀 LeetCode Portfolio
+
+        A collection of my accepted LeetCode solutions. Focused on efficient algorithms, data structures, and clean code standards.
+
         <p align=\"center\">
-          <img src=\"https://leetcard.jacoblin.cool/{GITHUB_USER}?theme=tokyonight&font=baloo_2&ext=heatmap\" width=\"100%\" />
+          <img src=\"https://leetcard.jacoblin.cool/{GITHUB_USER}?theme=tokyonight&font=baloo_2&ext=heatmap\" width=\"100%\" alt=\"LeetCode Stats\" />
         </p>
 
         ## 📚 Solutions
@@ -40,40 +41,83 @@ jobs:
         |---|---|---|---|
         '''
 
-        # Scan directories to build the table
-        problems = []
+        problems_data = []
+
+        # --- 2. Scan Folders ---
         for root, dirs, files in os.walk('.'):
-            for file in files:
-                if file.endswith('.cpp'):
-                    # Assuming LeetHub folder structure: Difficulty/ProblemName/Solution.cpp
-                    path_parts = root.split(os.sep)
-                    if len(path_parts) >= 2:
-                        difficulty = path_parts[1] # e.g., 'Medium'
-                        problem_name = path_parts[-1] # e.g., '1-Two-Sum'
-                        
-                        # Clean up names
-                        display_name = problem_name.replace('-', ' ').title()
-                        file_path = os.path.join(root, file)
-                        url_path = urllib.parse.quote(file_path)
-                        
-                        # Set Badge Color
-                        badge_color = 'green' if difficulty == 'Easy' else 'orange' if difficulty == 'Medium' else 'red'
-                        badge = f'![](https://img.shields.io/badge/-{difficulty}-{badge_color})'
+            # Skip hidden folders
+            if '.git' in root or '.github' in root:
+                continue
 
-                        problems.append(f'| 📝 | [{display_name}](https://leetcode.com/problems/{problem_name.lower()}) | [Code]({url_path}) | {badge} |')
+            # Look for C++ files
+            cpp_files = [f for f in files if f.endswith('.cpp')]
+            readme_files = [f for f in files if f.lower() == 'readme.md']
 
-        problems.sort() # Sort by name (or you can add logic to sort by ID)
-        readme_content += '\\n'.join(problems)
+            if cpp_files:
+                cpp_file = cpp_files[0]
+                full_path = os.path.join(root, cpp_file)
+                
+                # A. Detect Difficulty (Default to Unknown)
+                difficulty = 'Unknown'
+                badge_color = 'lightgrey'
+                
+                # Try to read difficulty from the local README
+                if readme_files:
+                    try:
+                        with open(os.path.join(root, readme_files[0]), 'r', encoding='utf-8') as f:
+                            content = f.read()
+                            if 'Easy' in content: 
+                                difficulty = 'Easy'
+                                badge_color = 'green'
+                            elif 'Medium' in content: 
+                                difficulty = 'Medium'
+                                badge_color = 'orange'
+                            elif 'Hard' in content: 
+                                difficulty = 'Hard'
+                                badge_color = 'red'
+                    except:
+                        pass
+                
+                # B. Fix Repo Link (Handle spaces)
+                relative_path = os.path.relpath(full_path, '.')
+                url_path = urllib.parse.quote(relative_path)
+                
+                # C. Fix LeetCode Link (Strip leading zeros/numbers)
+                folder_name = os.path.basename(root)
+                # Remove '0009-' or '9-' from start
+                clean_name = re.sub(r'^\d+-?', '', folder_name) 
+                # Create slug (e.g., 'Palindrome Number' -> 'palindrome-number')
+                slug = clean_name.lower().strip().replace(' ', '-')
+                leetcode_link = f'https://leetcode.com/problems/{slug}'
 
-        # Write to README.md
-        with open('README.md', 'w') as f:
+                # D. Get Problem Number
+                match = re.search(r'(\d+)', folder_name)
+                problem_num = int(match.group(1)) if match else 9999
+
+                # E. Create Row
+                display_name = clean_name.replace('-', ' ').title()
+                badge = f'![](https://img.shields.io/badge/-{difficulty}-{badge_color})'
+                
+                problems_data.append({
+                    'num': problem_num,
+                    'text': f'| {problem_num} | [{display_name}]({leetcode_link}) | [Code]({url_path}) | {badge} |'
+                })
+
+        # --- 3. Sort & Write ---
+        problems_data.sort(key=lambda x: x['num'])
+        
+        readme_content = header
+        for p in problems_data:
+            readme_content += p['text'] + '\\n'
+
+        with open('README.md', 'w', encoding='utf-8') as f:
             f.write(readme_content)
         "
 
-    - name: Commit and Push changes
+    - name: Commit and Push
       run: |
         git config --global user.name "GitHub Action"
         git config --global user.email "action@github.com"
         git add README.md
-        git commit -m "Auto-update README with pretty table" || exit 0
+        git commit -m "Update README with stats and description" || exit 0
         git push
