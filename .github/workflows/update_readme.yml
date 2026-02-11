@@ -2,33 +2,36 @@ name: Update Readme Table
 on:
   push:
     branches: [ main, master ]
+    paths-ignore:
+      - 'README.md'
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  update-readme:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.x'
 
-    - name: Generate Readme
+    - name: Generate Multi-Language Readme
       run: |
         python3 -c "
         import os
+        import json
         import urllib.parse
         import re
 
         GITHUB_USER = 'shalom2552'
         
-        # --- 1. The Header (Includes Stats & Your Text) ---
-        header = f'''# 🚀 LeetCode Portfolio
+        # --- 1. Header ---
+        header = f'''# LeetCode Portfolio
 
         A collection of my accepted LeetCode solutions. Focused on efficient algorithms, data structures, and clean code standards.
 
@@ -37,81 +40,101 @@ jobs:
         </p>
 
         ## 📚 Solutions
-        | # | Problem | Solution | Difficulty |
+        | # | Problem | Solutions | Difficulty |
         |---|---|---|---|
         '''
 
-        problems_data = []
+        # --- 2. Load Stats ---
+        stats_data = {}
+        if os.path.exists('stats.json'):
+            try:
+                with open('stats.json', 'r') as f:
+                    stats_data = json.load(f)
+            except:
+                pass
 
-        # --- 2. Scan Folders ---
+        problems_list = []
+        valid_extensions = ('.py', '.cpp', '.c', '.cc', '.java', '.js', '.ts', '.cs', '.go', '.rs', '.rb', '.swift', '.kt')
+
+        # --- 3. Scan Folders ---
         for root, dirs, files in os.walk('.'):
-            # Skip hidden folders
             if '.git' in root or '.github' in root:
                 continue
 
-            # Look for C++ files
-            cpp_files = [f for f in files if f.endswith('.cpp')]
-            readme_files = [f for f in files if f.lower() == 'readme.md']
+            folder_name = os.path.basename(root)
+            
+            # Find ALL valid code files in this folder
+            code_files = [f for f in files if f.lower().endswith(valid_extensions)]
+            
+            if code_files:
+                # Sort files to keep order consistent (e.g. c, cpp, py)
+                code_files.sort()
+                
+                # --- A. Generate Solution Links (The Fix) ---
+                solution_links = []
+                for code_file in code_files:
+                    full_path = os.path.join(root, code_file)
+                    relative_path = os.path.relpath(full_path, '.')
+                    url_path = urllib.parse.quote(relative_path)
+                    
+                    # Get extension (e.g. 'py', 'cpp')
+                    ext = os.path.splitext(code_file)[1].replace('.', '')
+                    
+                    # Create link: [cpp](url)
+                    solution_links.append(f'[{ext}]({url_path})')
+                
+                # Join all links with a separator
+                solutions_cell = ' '.join(solution_links)
 
-            if cpp_files:
-                cpp_file = cpp_files[0]
-                full_path = os.path.join(root, cpp_file)
-                
-                # A. Detect Difficulty (Default to Unknown)
+                # --- B. Meta Data ---
                 difficulty = 'Unknown'
-                badge_color = 'lightgrey'
+                problem_num = 9999
+                clean_name = folder_name.replace('-', ' ').title()
+
+                # Try stats.json
+                if folder_name in stats_data:
+                    difficulty = stats_data[folder_name].get('difficulty', 'Unknown')
                 
-                # Try to read difficulty from the local README
-                if readme_files:
+                # Fallback: Parse Number
+                match = re.search(r'(\d+)', folder_name)
+                if match:
+                    problem_num = int(match.group(1))
+                    clean_name = re.sub(r'^\d+-?', '', folder_name).replace('-', ' ').title()
+                
+                # Fallback: Check local README
+                if difficulty == 'Unknown' and 'readme.md' in [f.lower() for f in files]:
                     try:
-                        with open(os.path.join(root, readme_files[0]), 'r', encoding='utf-8') as f:
+                        readme_name = next(f for f in files if f.lower() == 'readme.md')
+                        with open(os.path.join(root, readme_name), 'r', encoding='utf-8') as f:
                             content = f.read()
-                            if 'Easy' in content: 
-                                difficulty = 'Easy'
-                                badge_color = 'green'
-                            elif 'Medium' in content: 
-                                difficulty = 'Medium'
-                                badge_color = 'orange'
-                            elif 'Hard' in content: 
-                                difficulty = 'Hard'
-                                badge_color = 'red'
+                            if 'Easy' in content: difficulty = 'Easy'
+                            elif 'Medium' in content: difficulty = 'Medium'
+                            elif 'Hard' in content: difficulty = 'Hard'
                     except:
                         pass
-                
-                # B. Fix Repo Link (Handle spaces)
-                relative_path = os.path.relpath(full_path, '.')
-                url_path = urllib.parse.quote(relative_path)
-                
-                # C. Fix LeetCode Link (Strip leading zeros/numbers)
-                folder_name = os.path.basename(root)
-                # Remove '0009-' or '9-' from start
-                clean_name = re.sub(r'^\d+-?', '', folder_name) 
-                # Create slug (e.g., 'Palindrome Number' -> 'palindrome-number')
+
+                # Links & Badges
                 slug = clean_name.lower().strip().replace(' ', '-')
                 leetcode_link = f'https://leetcode.com/problems/{slug}'
 
-                # D. Get Problem Number
-                match = re.search(r'(\d+)', folder_name)
-                problem_num = int(match.group(1)) if match else 9999
-
-                # E. Create Row
-                display_name = clean_name.replace('-', ' ').title()
+                colors = {'Easy': 'green', 'Medium': 'orange', 'Hard': 'red', 'Unknown': 'grey'}
+                badge_color = colors.get(difficulty, 'grey')
                 badge = f'![](https://img.shields.io/badge/-{difficulty}-{badge_color})'
                 
-                problems_data.append({
+                problems_list.append({
                     'num': problem_num,
-                    'text': f'| {problem_num} | [{display_name}]({leetcode_link}) | [Code]({url_path}) | {badge} |'
+                    'line': f'| {problem_num} | [{clean_name}]({leetcode_link}) | {solutions_cell} | {badge} |'
                 })
 
-        # --- 3. Sort & Write ---
-        problems_data.sort(key=lambda x: x['num'])
+        # --- 4. Write ---
+        problems_list.sort(key=lambda x: x['num'])
         
-        readme_content = header
-        for p in problems_data:
-            readme_content += p['text'] + '\\n'
+        final_content = header
+        for p in problems_list:
+            final_content += p['line'] + '\\n'
 
         with open('README.md', 'w', encoding='utf-8') as f:
-            f.write(readme_content)
+            f.write(final_content)
         "
 
     - name: Commit and Push
@@ -119,5 +142,6 @@ jobs:
         git config --global user.name "GitHub Action"
         git config --global user.email "action@github.com"
         git add README.md
-        git commit -m "Update README with stats and description" || exit 0
+        git commit -m "Update README with multi-language support" || exit 0
+        git pull --rebase origin main
         git push
