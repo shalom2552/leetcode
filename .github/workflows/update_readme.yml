@@ -118,8 +118,7 @@ jobs:
                 badge_color = colors.get(difficulty, 'grey')
                 
                 # CHANGED: Static image instead of clickable link button
-                badge = f'![](https://img.shields.io/badge/-{difficulty}-{badge_color})'
-                
+                badge = f'<img src=\"https://img.shields.io/badge/-{difficulty}-{badge_color}\" alt=\"{difficulty}\">'                
                 problems_list.append({
                     'num': problem_num,
                     'line': f'| {problem_num} | [{clean_display_name}]({leetcode_link}) | {solutions_cell} | {badge} |'
