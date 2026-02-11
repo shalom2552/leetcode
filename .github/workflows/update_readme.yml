@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -56,7 +56,6 @@ jobs:
         problems_list = []
         
         # --- 3. Supported Extensions ---
-        # Add any other extensions you use here
         valid_extensions = ('.py', '.cpp', '.c', '.cc', '.java', '.js', '.ts', '.cs', '.go', '.rs', '.rb', '.swift', '.kt')
 
         # --- 4. Scan Directories ---
@@ -70,7 +69,6 @@ jobs:
             code_files = [f for f in files if f.lower().endswith(valid_extensions)]
             
             if code_files:
-                # Pick the first code file found (or you can customize to prefer Python)
                 code_file = code_files[0]
                 full_path = os.path.join(root, code_file)
                 
@@ -87,10 +85,9 @@ jobs:
                 match = re.search(r'(\d+)', folder_name)
                 if match:
                     problem_num = int(match.group(1))
-                    # Remove number for clean display
                     clean_name = re.sub(r'^\d+-?', '', folder_name).replace('-', ' ').title()
                 
-                # C. Fallback: Check local README for difficulty keywords
+                # C. Fallback: Check local README for difficulty
                 if difficulty == 'Unknown' and 'readme.md' in [f.lower() for f in files]:
                     try:
                         readme_name = next(f for f in files if f.lower() == 'readme.md')
@@ -114,7 +111,6 @@ jobs:
                 badge_color = colors.get(difficulty, 'grey')
                 badge = f'![](https://img.shields.io/badge/-{difficulty}-{badge_color})'
                 
-                # Show language extension as the link text (e.g., [py], [cpp])
                 ext = os.path.splitext(code_file)[1].replace('.', '')
                 
                 problems_list.append({
@@ -138,5 +134,7 @@ jobs:
         git config --global user.name "GitHub Action"
         git config --global user.email "action@github.com"
         git add README.md
-        git commit -m "Update README with universal language support" || exit 0
+        git commit -m "Auto-update README with universal language support" || exit 0
+        git pull --rebase origin main
         git push
+        
