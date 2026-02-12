@@ -45,7 +45,7 @@ public:
         long long duplicate = (diff_sq - diff * diff) / (2 * diff);
         long long missing = duplicate + diff;
 
-        std::vector<int> result = {(int)duplicate, (int)missing};
+        vector<int> result = {(int)duplicate, (int)missing};
         return result;
     }
 };
