@@ -10,17 +10,16 @@ class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
         
         # intialize sum of original elements {1, ..., n} and squer
-        sum_org = 0
-        sum_org_sq = 0
+        n = len(nums)
+        # using Arithmetic progression sum formula
+        sum_org = n * (n + 1) // 2
+        # using Square pyramidal number formula
+        # https://en.wikipedia.org/wiki/Square_pyramidal_number
+        sum_org_sq = n * (n + 1) * (2 * n + 1) // 6
         
         # intialize sum of actual elements and squer
         sum_elem = 0
         sum_elem_sq = 0
-
-        # calculate the sum of original elemments and thier squer
-        for i in range(1, len(nums) + 1):
-            sum_org += i
-            sum_org_sq += i * i
 
         # calculate the sum of actual elements and thier squer
         for i in range(len(nums)):
