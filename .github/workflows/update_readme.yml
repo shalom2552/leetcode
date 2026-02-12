@@ -35,8 +35,8 @@ jobs:
         A collection of my accepted LeetCode solutions. Focused on efficient algorithms, data structures, and clean code standards.
 
         ## Live Stats
-        <p>
-          <img src=\"https://leetcard.jacoblin.cool/{GITHUB_USER}?theme=tokyonight&font=baloo_2&ext=heatmap\" width=\"600\" alt=\"LeetCode Stats\" />
+        <p align=\"center\">
+          <img src=\"https://leetcard.jacoblin.cool/{GITHUB_USER}?theme=tokyonight&font=baloo_2&ext=heatmap\" width=\"800\" alt=\"LeetCode Stats\" />
         </p>
 
         ## Solutions
@@ -81,8 +81,7 @@ jobs:
                     if clean_file_name != clean_folder_name:
                         suffix = clean_file_name.replace(clean_folder_name, '').upper()
                         if suffix:
-                             # CHANGED: Underscore prevents line wrapping
-                             label = f'{ext}_{suffix}'
+                             label = f'{ext}{suffix}'
 
                     solution_links.append(f'[{label}]({url_path})')
                 
@@ -111,6 +110,7 @@ jobs:
                     except:
                         pass
 
+                folder_url = urllib.parse.quote(os.path.relpath(root, '.'))
                 slug = clean_display_name.lower().strip().replace(' ', '-')
                 leetcode_link = f'https://leetcode.com/problems/{slug}'
 
@@ -120,7 +120,7 @@ jobs:
                 
                 problems_list.append({
                     'num': problem_num,
-                    'line': f'| {problem_num} | [{clean_display_name}]({leetcode_link}) | {solutions_cell} | {badge} |'
+                    'line': f'| [{problem_num}]({leetcode_link}) | [{clean_display_name}]({folder_url}) | {solutions_cell} | {badge} |'
                 })
 
         problems_list.sort(key=lambda x: x['num'])
