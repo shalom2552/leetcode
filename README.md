@@ -1,10 +1,13 @@
+<div align=center>
+
 # LeetCode Portfolio
 
-A collection of my accepted LeetCode solutions. Focused on efficient algorithms, data structures, and clean code standards.
+A collection of my accepted LeetCode solutions.<br>
+Focused on efficient algorithms, data structures, and clean code standards.
 
 ## Live Stats
 <p align="center">
-  <img src="https://leetcard.jacoblin.cool/shalom2552?theme=tokyonight&font=baloo_2&ext=heatmap" width="800" alt="LeetCode Stats" />
+  <img src="https://leetcard.jacoblin.cool/shalom2552?theme=tokyonight&font=baloo_2&ext=heatmap" width="650" alt="LeetCode Stats" />
 </p>
 
 ## Solutions
@@ -21,3 +24,4 @@ A collection of my accepted LeetCode solutions. Focused on efficient algorithms,
 | [295](https://leetcode.com/problems/find-median-from-data-stream) | [Find Median From Data Stream](0295-find-median-from-data-stream) | [cpp](0295-find-median-from-data-stream/0295-find-median-from-data-stream.cpp) | <img src="https://img.shields.io/badge/-Hard-red" alt="Hard"> |
 | [347](https://leetcode.com/problems/top-k-frequent-elements) | [Top K Frequent Elements](0347-top-k-frequent-elements) | [py_BF](0347-top-k-frequent-elements/0347-top-k-frequent-elements_BF.py) [py_BUCKET](0347-top-k-frequent-elements/0347-top-k-frequent-elements_Bucket.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [645](https://leetcode.com/problems/set-mismatch) | [Set Mismatch](0645-set-mismatch) | [cpp](0645-set-mismatch/0645-set-mismatch.cpp) [py](0645-set-mismatch/0645-set-mismatch.py) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
+</div>

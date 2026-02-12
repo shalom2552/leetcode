@@ -31,13 +31,16 @@ jobs:
         GITHUB_USER = 'shalom2552'
         EXCLUDE_ITEMS = {'generate_portable_readme.py', 'sync_readme.sh', 'stats.json', 'LeetCode.md'}
         
-        header = f'''# LeetCode Portfolio
+        header = f'''<div align="center">
 
-        A collection of my accepted LeetCode solutions. Focused on efficient algorithms, data structures, and clean code standards.
+        # LeetCode Portfolio
+
+        A collection of my accepted LeetCode solutions.<br>
+        Focused on efficient algorithms, data structures, and clean code standards.
 
         ## Live Stats
         <p align=\"center\">
-          <img src=\"https://leetcard.jacoblin.cool/{GITHUB_USER}?theme=tokyonight&font=baloo_2&ext=heatmap\" width=\"800\" alt=\"LeetCode Stats\" />
+          <img src=\"https://leetcard.jacoblin.cool/{GITHUB_USER}?theme=tokyonight&font=baloo_2&ext=heatmap\" width=\"650\" alt=\"LeetCode Stats\" />
         </p>
 
         ## Solutions
@@ -129,6 +132,8 @@ jobs:
         final_content = header
         for p in problems_list:
             final_content += p['line'] + '\\n'
+
+        final_content += '</div>'
 
         with open('README.md', 'w', encoding='utf-8') as f:
             f.write(final_content)
