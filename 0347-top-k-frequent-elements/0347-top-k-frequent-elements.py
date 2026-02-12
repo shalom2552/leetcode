@@ -37,6 +37,3 @@ class Solution:
             hist[most_num] = -1
 
         return result
-
-
-        
