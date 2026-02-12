@@ -13,18 +13,16 @@ public:
     vector<int> findErrorNums(vector<int>& nums) {
         
         // intialize sum of original elements {1, ..., n} and squer
-        long long sum_org = 0;
-        long long sum_org_sq = 0;
+        long long n = nums.size();
+        // using Arithmetic progression sum formula
+        long long sum_org = n * (n + 1) / 2;
+        // using Square pyramidal number formula
+        // https://en.wikipedia.org/wiki/Square_pyramidal_number
+        long long sum_org_sq = n * (n + 1) * (2 * n + 1) / 6;
         
         // intialize sum of actual elements and squer
         long long sum_elem = 0;
         long long sum_elem_sq = 0;
-
-        // calculate the sum of original elemments and thier squer
-        for (int i = 1; i <= nums.size(); ++i) {
-            sum_org += i;
-            sum_org_sq += i * i;
-        }
 
         // calculate the sum of actual elements and thier squer
         for (int i = 0; i < nums.size(); ++i) {
