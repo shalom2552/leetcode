@@ -12,7 +12,6 @@ BASE_URL = f'https://github.com/{GITHUB_USER}/{REPO_NAME}/blob/{BRANCH}/'
 def main():
     if not os.path.exists(SOURCE_FILE):
         print(f"Error: Could not find '{SOURCE_FILE}'.")
-        print("Make sure you are running this script from the folder *above* the leetcode repo.")
         return
 
     with open(SOURCE_FILE, 'r', encoding='utf-8') as f:
