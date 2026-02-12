@@ -26,7 +26,7 @@ class Solution:
             most_val = hist[most_num]
 
             # find current most elem in the hist
-            for num, count in hist.items():
+            for num in hist.keys():
                 if hist[num] > most_val:
                     most_val = hist[num]
                     most_num = num
