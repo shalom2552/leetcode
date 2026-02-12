@@ -29,6 +29,7 @@ jobs:
         import re
 
         GITHUB_USER = 'shalom2552'
+        EXCLUDE_ITEMS = {'generate_portable_readme.py', 'sync_readme.sh', 'stats.json', 'LeetCode.md'}
         
         header = f'''# LeetCode Portfolio
 
@@ -56,12 +57,12 @@ jobs:
         valid_extensions = ('.py', '.cpp', '.c', '.cc', '.java', '.js', '.ts', '.cs', '.go', '.rs', '.rb', '.swift', '.kt')
 
         for root, dirs, files in os.walk('.'):
-            if '.git' in root or '.github' in root:
+            if root == '.' or '.git' in root or '.github' in root:
                 continue
 
             folder_name = os.path.basename(root)
-            code_files = [f for f in files if f.lower().endswith(valid_extensions)]
-            
+            code_files = [f for f in files if f.lower().endswith(valid_extensions) and f not in EXCLUDE_ITEMS]            
+
             if code_files:
                 code_files.sort()
                 
