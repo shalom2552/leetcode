@@ -27,9 +27,8 @@ public:
         // fill the bucket with nums by their count
         for (std::pair<const int, int>& elem : hist) {
             int num = elem.first;
-            int count = hist[num];
             // add num to the index representing its count
-            bucket[count].push_back(num);
+            bucket[elem.second].push_back(num);
         }
 
         // loop over the bucket in reverse to find the kth most element
@@ -44,6 +43,7 @@ public:
             }
         }
 
+        // safeguard for edge cases
         return result;
     }
 };
