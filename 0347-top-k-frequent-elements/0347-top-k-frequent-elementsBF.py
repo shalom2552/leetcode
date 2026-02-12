@@ -1,9 +1,10 @@
-# Motivation: Use hashmap to store each element occurrences count,
-#    then loop over the map k times to find the the most element for each k.
-#   
+# Motivation: BF approach. 
+#     Use hashmap to store each element occurrences count,
+#     then loop over the map k times to find the the most element for each k.
+#     When finding an element set its count to -1 so we dont add it again.
 # Complexity: 
-#     Time - O(): 
-#     Space - O():
+#     Time - O(n*k): loop over the list once and then k more times.
+#     Space - O(n): hashmap of elements.
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 
@@ -24,6 +25,7 @@ class Solution:
             most_num = nums[0]
             most_val = hist[most_num]
 
+            # find current most elem in the hist
             for num in nums:
                 if hist[num] > most_val:
                     most_val = hist[num]
