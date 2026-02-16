@@ -22,27 +22,9 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [98](https://leetcode.com/problems/validate-binary-search-tree) | [Validate Binary Search Tree](0098-validate-binary-search-tree) | [cpp](0098-validate-binary-search-tree/0098-validate-binary-search-tree.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [108](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree) | [Convert Sorted Array To Binary Search Tree](0108-convert-sorted-array-to-binary-search-tree) | [cpp](0108-convert-sorted-array-to-binary-search-tree/0108-convert-sorted-array-to-binary-search-tree.cpp) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 | [215](https://leetcode.com/problems/kth-largest-element-in-an-array) | [Kth Largest Element In An Array](0215-kth-largest-element-in-an-array) | [py](0215-kth-largest-element-in-an-array/0215-kth-largest-element-in-an-array.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
+| [229](https://leetcode.com/problems/majority-element-ii) | [Majority Element Ii](0229-majority-element-ii) | [py](0229-majority-element-ii/0229-majority-element-ii.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [238](https://leetcode.com/problems/product-of-array-except-self) | [Product Of Array Except Self](0238-product-of-array-except-self) | [py](0238-product-of-array-except-self/0238-product-of-array-except-self.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [295](https://leetcode.com/problems/find-median-from-data-stream) | [Find Median From Data Stream](0295-find-median-from-data-stream) | [cpp](0295-find-median-from-data-stream/0295-find-median-from-data-stream.cpp) | <img src="https://img.shields.io/badge/-Hard-red" alt="Hard"> |
 | [347](https://leetcode.com/problems/top-k-frequent-elements) | [Top K Frequent Elements](0347-top-k-frequent-elements) | [cpp](0347-top-k-frequent-elements/0347-top-k-frequent-elements.cpp) [py](0347-top-k-frequent-elements/0347-top-k-frequent-elements.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [645](https://leetcode.com/problems/set-mismatch) | [Set Mismatch](0645-set-mismatch) | [cpp](0645-set-mismatch/0645-set-mismatch.cpp) [py](0645-set-mismatch/0645-set-mismatch.py) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 </div>
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Array
-|  |
-| ------- |
-| [0229-majority-element-ii](https://github.com/shalom2552/leetcode/tree/master/0229-majority-element-ii) |
-## Hash Table
-|  |
-| ------- |
-| [0229-majority-element-ii](https://github.com/shalom2552/leetcode/tree/master/0229-majority-element-ii) |
-## Sorting
-|  |
-| ------- |
-| [0229-majority-element-ii](https://github.com/shalom2552/leetcode/tree/master/0229-majority-element-ii) |
-## Counting
-|  |
-| ------- |
-| [0229-majority-element-ii](https://github.com/shalom2552/leetcode/tree/master/0229-majority-element-ii) |
-<!---LeetCode Topics End-->
