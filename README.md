@@ -27,3 +27,22 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [347](https://leetcode.com/problems/top-k-frequent-elements) | [Top K Frequent Elements](0347-top-k-frequent-elements) | [cpp](0347-top-k-frequent-elements/0347-top-k-frequent-elements.cpp) [py](0347-top-k-frequent-elements/0347-top-k-frequent-elements.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [645](https://leetcode.com/problems/set-mismatch) | [Set Mismatch](0645-set-mismatch) | [cpp](0645-set-mismatch/0645-set-mismatch.cpp) [py](0645-set-mismatch/0645-set-mismatch.py) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 </div>
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Array
+|  |
+| ------- |
+| [0229-majority-element-ii](https://github.com/shalom2552/leetcode/tree/master/0229-majority-element-ii) |
+## Hash Table
+|  |
+| ------- |
+| [0229-majority-element-ii](https://github.com/shalom2552/leetcode/tree/master/0229-majority-element-ii) |
+## Sorting
+|  |
+| ------- |
+| [0229-majority-element-ii](https://github.com/shalom2552/leetcode/tree/master/0229-majority-element-ii) |
+## Counting
+|  |
+| ------- |
+| [0229-majority-element-ii](https://github.com/shalom2552/leetcode/tree/master/0229-majority-element-ii) |
+<!---LeetCode Topics End-->
