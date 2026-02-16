@@ -60,7 +60,7 @@ public:
         // Count candidates appearences
         count_a = 0;
         count_b = 0;
-        size_t n = nums.size();
+        int n = nums.size();
 
         for (int num : nums) {
             if (num == candidate_a) {
@@ -82,7 +82,5 @@ public:
 
         //might be empty if no candidate is valid
         return result;
-
     }
 };
-
