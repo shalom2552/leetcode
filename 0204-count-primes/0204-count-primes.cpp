@@ -13,12 +13,18 @@ Complexity:
 class Solution {
 public:
     int countPrimes(int n) {
+
+        if (n <= 2) {
+            return 0;
+        }
         
         // index representation of numbers up to n
         std::vector<bool> is_prime(n, true);
 
+        // we can checck up until sqrt of n to save suplicates
+        int sqrt_n = (int)(std::sqrt(n) + 1);
         // update is_prime with all non prime numbers
-        for (long i = 2; i < n; ++i) {
+        for (long i = 2; i < sqrt_n; ++i) {
             // if i is not prime it will not find a new non prime
             if (is_prime[i]) {
                 // find all numbers that are divisble by i
