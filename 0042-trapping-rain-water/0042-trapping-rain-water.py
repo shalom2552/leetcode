@@ -10,7 +10,7 @@ class Solution:
     def trap(self, height: List[int]) -> int:
         
         n = len(height)
-        
+
         # the minimum value between the max of left and right bounds
         min_bound = [0 for _ in range(n)]
 
@@ -20,15 +20,15 @@ class Solution:
             min_bound[i] = max_left
             max_left = max(max_left, height[i])
 
-        # Calculate maximum right bound for each height
+        # Calculate maximum right bound for each height 
+        # and sum the results on the fly
+        result = 0
         max_right = 0
         for i in range(n - 1, -1, -1):
             min_bound[i] = min(max_right, min_bound[i])
             max_right = max(max_right, height[i])
-
-        # sum the diffrence between the min bounds and the heights
-        result = 0
-        for i in range(n):
+            
+            # sum the result on the fly
             curr_water = min_bound[i] - height[i]
             result += max(0, curr_water)
         
