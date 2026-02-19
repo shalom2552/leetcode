@@ -2,7 +2,7 @@ import re
 import os
 
 SOURCE_FILE = 'README.md'
-OUTPUT_FILE = '../readme.md'
+OUTPUT_FILE = '../README.md'
 GITHUB_USER = 'shalom2552'
 REPO_NAME = 'leetcode'
 BRANCH = 'main'
