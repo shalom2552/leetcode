@@ -13,12 +13,9 @@ public:
 
         // calculate profit from each day
         for (int i = 1; i < prices.size(); ++i) {
-            int today = prices[i];
-            int yesterday = prices[i - 1];
-
             // yesterday's price is lower than today's
-            if (yesterday < today) {
-                profit += today - yesterday;
+            if (prices[i - 1] < prices[i]) {
+                profit += prices[i] - prices[i - 1];
             }
         }
 
