@@ -1,3 +1,8 @@
+# Motivation: 
+# Complexity: 
+#     Time - O(n): Looping over the array once.
+#     Space - O(1): Auxiliary.
+#
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
 
