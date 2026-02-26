@@ -1,5 +1,9 @@
 /*
 Motivation: Sort the array and then an outer for loops and use two pointers.
+      In each iteration, while skiping duplicate numbers, we check each pair 
+      in the rest of the array, if the total is less than 0, we increment from 
+      the left to get a bigger value and vise versa. If the total is 0 than we 
+      can safly add this result since the array is sorted and we skip duplicates.  
 Complexity: 
       Time - O(n^2): sorting and scan the array twice.
       Space - O(1): Auxiliary.
@@ -13,47 +17,50 @@ public:
         std::vector<std::vector<int>> results;
         
         for (std::size_t i = 0; i < nums.size(); ++i) {
-            
-            // two pointers to scan the array
-            std::size_t j = i + 1;
-            std::size_t k = nums.size() - 1;
 
             // skip duplicate consecutive numbers
-            if (i > 0 and nums[i] == nums[i - 1]) {
+            if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
+            
+            // two pointers to scan the array
+            std::size_t l = i + 1;
+            std::size_t r = nums.size() - 1;
 
             // search from both side of the array
-            while (j < k) {
+            while (l < r) {
 
-                int total = nums[i] + nums[j] + nums[k];
+                int total = nums[i] + nums[l] + nums[r];
 
-                if (total == 0) {
-                    results.push_back( {nums[i], nums[j], nums[k]} );
+                // need a bigger number increase from left
+                if (total < 0) {
+                    ++l;
+                }
+                // need a smaller number decrease from right
+                else if (total > 0) {
+                    --r;
+                }
+                // total == 0
+                else {
+                    // not duplicates, since the array is sorted and we skip duplicate
+                    results.push_back( {nums[i], nums[l], nums[r]} );
                     
                     // keep searching with diffrent values 
-                    j += 1;
-                    k -= 1;
+                    ++l;
+                    --r;
 
                     // find the next diffrent values from both ends
-                    while (nums[j] == nums[j-1] and j < k) {
-                        j += 1;
+                    while (l < r && nums[l] == nums[l - 1]) {
+                        ++l;
                     }
-                    while (nums[k] == nums[k+1] and j < k) {
-                        k -= 1;
+                    while (l < r && nums[r] == nums[r + 1]) {
+                        --r;
                     }
-                }
-                // increase from left
-                else if (total < 0) {
-                    j += 1;
-                }
-                // decrease from right
-                else {
-                    k -= 1;
                 }
             }
         }
-            
+        
+        // if nums is empty while condition is false and results is empty 
         return results;
     }
 };
