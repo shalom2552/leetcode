@@ -44,22 +44,3 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [1353](https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended) | [Maximum Number Of Events That Can Be Attended](1353-maximum-number-of-events-that-can-be-attended) | [cpp](1353-maximum-number-of-events-that-can-be-attended/1353-maximum-number-of-events-that-can-be-attended.cpp) [py](1353-maximum-number-of-events-that-can-be-attended/1353-maximum-number-of-events-that-can-be-attended.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [1545](https://leetcode.com/problems/find-kth-bit-in-nth-binary-string) | [Find Kth Bit In Nth Binary String](1545-find-kth-bit-in-nth-binary-string) | [cpp](1545-find-kth-bit-in-nth-binary-string/1545-find-kth-bit-in-nth-binary-string.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 </div>
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Array
-| Problem Name | Difficulty |
-| ------- | ------- |
-| [0037-sudoku-solver](https://github.com/shalom2552/leetcode/tree/main/0037-sudoku-solver/) | Hard |
-## Hash Table
-| Problem Name | Difficulty |
-| ------- | ------- |
-| [0037-sudoku-solver](https://github.com/shalom2552/leetcode/tree/main/0037-sudoku-solver/) | Hard |
-## Backtracking
-| Problem Name | Difficulty |
-| ------- | ------- |
-| [0037-sudoku-solver](https://github.com/shalom2552/leetcode/tree/main/0037-sudoku-solver/) | Hard |
-## Matrix
-| Problem Name | Difficulty |
-| ------- | ------- |
-| [0037-sudoku-solver](https://github.com/shalom2552/leetcode/tree/main/0037-sudoku-solver/) | Hard |
-<!---LeetCode Topics End-->
