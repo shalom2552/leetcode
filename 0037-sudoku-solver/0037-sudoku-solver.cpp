@@ -33,29 +33,37 @@ public:
             return backtrack(board, idx + 1);
         }
 
+        // get current cell options
+        array<bool, 10> options;
+        cell_options(board, options, i, j);
+
         // try all options for current cell
-        for (char option : cell_options(board, i, j)) {
-            
-            // try current option
-            board[i][j] = option;
+        for (int val = 1; val <=9; ++val) {
 
-            // traverse next cells
-            if (backtrack(board, idx + 1)) {
-                return true;
+            if (options[val]) {
+
+                // try current option
+                board[i][j] = val + '0';
+
+                // traverse next cells
+                if (backtrack(board, idx + 1)) {
+                    return true;
+                }
+
+                // backtrack
+                board[i][j] = '.';
             }
-
-            // backtrack
-            board[i][j] = '.';
         }
 
         // no solution found
         return false;
     }
 
-    vector<char> cell_options(vector<vector<char>>& board, size_t i, size_t j)
+    // calculates all valid values for a certain cell
+    void cell_options(vector<vector<char>>& board, array<bool, 10>& options, size_t i, size_t j)
     {
-        // start with all options
-        vector<char> options = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        // clean the options array
+        options.fill(true);
 
         // check rows and coloms
         for (size_t idx = 0; idx < N; ++idx) {
@@ -82,24 +90,15 @@ public:
                 update_options(options, box_cell);
             }
         }
-
-        return options;
     }
 
     // remove a number from the vector of options
-    void update_options(vector<char>& options, char cell)
+    void update_options(array<bool, 10>& options, char cell)
     {
         // only process numbers
         if (cell != '.') {
-            
-            // convert to int
-            char to_remove = cell;
-
-            // remove-erase
-            auto it = std::remove(options.begin(), options.end(), to_remove);
-
-            // earse if exist
-            options.erase(it, options.end());
+            // set the index of the option as false
+            options[cell - '0'] = false;
         }
     }
 
