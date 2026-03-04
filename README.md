@@ -32,6 +32,7 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [204](https://leetcode.com/problems/count-primes) | [Count Primes](0204-count-primes) | [cpp](0204-count-primes/0204-count-primes.cpp) [py](0204-count-primes/0204-count-primes.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [215](https://leetcode.com/problems/kth-largest-element-in-an-array) | [Kth Largest Element In An Array](0215-kth-largest-element-in-an-array) | [py](0215-kth-largest-element-in-an-array/0215-kth-largest-element-in-an-array.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [229](https://leetcode.com/problems/majority-element-ii) | [Majority Element Ii](0229-majority-element-ii) | [cpp](0229-majority-element-ii/0229-majority-element-ii.cpp) [py](0229-majority-element-ii/0229-majority-element-ii.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
+| [231](https://leetcode.com/problems/power-of-two) | [Power Of Two](0231-power-of-two) | [cpp](0231-power-of-two/0231-power-of-two.cpp) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 | [238](https://leetcode.com/problems/product-of-array-except-self) | [Product Of Array Except Self](0238-product-of-array-except-self) | [py](0238-product-of-array-except-self/0238-product-of-array-except-self.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [295](https://leetcode.com/problems/find-median-from-data-stream) | [Find Median From Data Stream](0295-find-median-from-data-stream) | [cpp](0295-find-median-from-data-stream/0295-find-median-from-data-stream.cpp) | <img src="https://img.shields.io/badge/-Hard-red" alt="Hard"> |
 | [322](https://leetcode.com/problems/coin-change) | [Coin Change](0322-coin-change) | [cpp](0322-coin-change/0322-coin-change.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
@@ -39,3 +40,18 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [645](https://leetcode.com/problems/set-mismatch) | [Set Mismatch](0645-set-mismatch) | [cpp](0645-set-mismatch/0645-set-mismatch.cpp) [py](0645-set-mismatch/0645-set-mismatch.py) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 | [1353](https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended) | [Maximum Number Of Events That Can Be Attended](1353-maximum-number-of-events-that-can-be-attended) | [cpp](1353-maximum-number-of-events-that-can-be-attended/1353-maximum-number-of-events-that-can-be-attended.cpp) [py](1353-maximum-number-of-events-that-can-be-attended/1353-maximum-number-of-events-that-can-be-attended.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 </div>
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Math
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0231-power-of-two](https://github.com/shalom2552/leetcode/tree/main/0231-power-of-two/) | Easy |
+## Bit Manipulation
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0231-power-of-two](https://github.com/shalom2552/leetcode/tree/main/0231-power-of-two/) | Easy |
+## Recursion
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0231-power-of-two](https://github.com/shalom2552/leetcode/tree/main/0231-power-of-two/) | Easy |
+<!---LeetCode Topics End-->
