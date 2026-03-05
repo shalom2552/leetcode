@@ -29,6 +29,7 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [98](https://leetcode.com/problems/validate-binary-search-tree) | [Validate Binary Search Tree](0098-validate-binary-search-tree) | [cpp](0098-validate-binary-search-tree/0098-validate-binary-search-tree.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [108](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree) | [Convert Sorted Array To Binary Search Tree](0108-convert-sorted-array-to-binary-search-tree) | [cpp](0108-convert-sorted-array-to-binary-search-tree/0108-convert-sorted-array-to-binary-search-tree.cpp) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 | [112](https://leetcode.com/problems/path-sum) | [Path Sum](0112-path-sum) | [cpp](0112-path-sum/0112-path-sum.cpp) [py](0112-path-sum/0112-path-sum.py) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
+| [121](https://leetcode.com/problems/best-time-to-buy-and-sell-stock) | [Best Time To Buy And Sell Stock](0121-best-time-to-buy-and-sell-stock) | [cpp](0121-best-time-to-buy-and-sell-stock/0121-best-time-to-buy-and-sell-stock.cpp) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 | [122](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii) | [Best Time To Buy And Sell Stock Ii](0122-best-time-to-buy-and-sell-stock-ii) | [cpp](0122-best-time-to-buy-and-sell-stock-ii/0122-best-time-to-buy-and-sell-stock-ii.cpp) [py](0122-best-time-to-buy-and-sell-stock-ii/0122-best-time-to-buy-and-sell-stock-ii.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [164](https://leetcode.com/problems/maximum-gap) | [Maximum Gap](0164-maximum-gap) | [cpp](0164-maximum-gap/0164-maximum-gap.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [198](https://leetcode.com/problems/house-robber) | [House Robber](0198-house-robber) | [cpp](0198-house-robber/0198-house-robber.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
@@ -44,14 +45,3 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [1353](https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended) | [Maximum Number Of Events That Can Be Attended](1353-maximum-number-of-events-that-can-be-attended) | [cpp](1353-maximum-number-of-events-that-can-be-attended/1353-maximum-number-of-events-that-can-be-attended.cpp) [py](1353-maximum-number-of-events-that-can-be-attended/1353-maximum-number-of-events-that-can-be-attended.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [1545](https://leetcode.com/problems/find-kth-bit-in-nth-binary-string) | [Find Kth Bit In Nth Binary String](1545-find-kth-bit-in-nth-binary-string) | [cpp](1545-find-kth-bit-in-nth-binary-string/1545-find-kth-bit-in-nth-binary-string.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 </div>
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Array
-| Problem Name | Difficulty |
-| ------- | ------- |
-| [0121-best-time-to-buy-and-sell-stock](https://github.com/shalom2552/leetcode/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
-## Dynamic Programming
-| Problem Name | Difficulty |
-| ------- | ------- |
-| [0121-best-time-to-buy-and-sell-stock](https://github.com/shalom2552/leetcode/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
-<!---LeetCode Topics End-->
