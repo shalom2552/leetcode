@@ -27,12 +27,12 @@ public:
     }
 
     // recursively search for solutions on a decision tree
-    // in each decision either include ot exclude current candidate
+    // in each decision either include or exclude current candidate
     void recurse(vector<int> const& candidates, int target, size_t i,
                 vector<vector<int>>& res, vector<int>& curr)
         {
 
-        //  no solution, skip
+        // no solution, skip
         if (target < 0 || i == candidates.size()) {
             return;
         }
@@ -51,4 +51,5 @@ public:
         curr.pop_back();
         recurse(candidates, target, i + 1, res, curr);
     }
+    
 };
