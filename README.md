@@ -21,7 +21,7 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [23](https://leetcode.com/problems/merge-k-sorted-lists) | [Merge K Sorted Lists](0023-merge-k-sorted-lists) | [cpp](0023-merge-k-sorted-lists/0023-merge-k-sorted-lists.cpp) | <img src="https://img.shields.io/badge/-Hard-red" alt="Hard"> |
 | [27](https://leetcode.com/problems/remove-element) | [Remove Element](0027-remove-element) | [c](0027-remove-element/0027-remove-element.c) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 | [37](https://leetcode.com/problems/sudoku-solver) | [Sudoku Solver](0037-sudoku-solver) | [cpp](0037-sudoku-solver/0037-sudoku-solver.cpp) | <img src="https://img.shields.io/badge/-Hard-red" alt="Hard"> |
-| [39](https://leetcode.com/problems/combination-sum) | [Combination Sum](0039-combination-sum) | [cpp](0039-combination-sum/0039-combination-sum.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
+| [39](https://leetcode.com/problems/combination-sum) | [Combination Sum](0039-combination-sum) | [cpp](0039-combination-sum/0039-combination-sum.cpp) [py](0039-combination-sum/0039-combination-sum.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [41](https://leetcode.com/problems/first-missing-positive) | [First Missing Positive](0041-first-missing-positive) | [cpp](0041-first-missing-positive/0041-first-missing-positive.cpp) | <img src="https://img.shields.io/badge/-Hard-red" alt="Hard"> |
 | [42](https://leetcode.com/problems/trapping-rain-water) | [Trapping Rain Water](0042-trapping-rain-water) | [cpp](0042-trapping-rain-water/0042-trapping-rain-water.cpp) [py](0042-trapping-rain-water/0042-trapping-rain-water.py) | <img src="https://img.shields.io/badge/-Hard-red" alt="Hard"> |
 | [50](https://leetcode.com/problems/powx-n) | [Powx N](0050-powx-n) | [cpp](0050-powx-n/0050-powx-n.cpp) [py](0050-powx-n/0050-powx-n.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
@@ -46,14 +46,3 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [1353](https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended) | [Maximum Number Of Events That Can Be Attended](1353-maximum-number-of-events-that-can-be-attended) | [cpp](1353-maximum-number-of-events-that-can-be-attended/1353-maximum-number-of-events-that-can-be-attended.cpp) [py](1353-maximum-number-of-events-that-can-be-attended/1353-maximum-number-of-events-that-can-be-attended.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [1545](https://leetcode.com/problems/find-kth-bit-in-nth-binary-string) | [Find Kth Bit In Nth Binary String](1545-find-kth-bit-in-nth-binary-string) | [cpp](1545-find-kth-bit-in-nth-binary-string/1545-find-kth-bit-in-nth-binary-string.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 </div>
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Array
-| Problem Name | Difficulty |
-| ------- | ------- |
-| [0039-combination-sum](https://github.com/shalom2552/leetcode/tree/main/0039-combination-sum/) | Medium |
-## Backtracking
-| Problem Name | Difficulty |
-| ------- | ------- |
-| [0039-combination-sum](https://github.com/shalom2552/leetcode/tree/main/0039-combination-sum/) | Medium |
-<!---LeetCode Topics End-->
