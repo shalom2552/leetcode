@@ -1,45 +1,62 @@
 name: Update Readme Table
+
+# ------------------------------------------------------------------------------
+# Triggers: 
+# 1. Runs automatically when code is pushed to main/master (ignoring README itself).
+# 2. workflow_dispatch allows manual triggering from the GitHub Actions tab.
+# ------------------------------------------------------------------------------
 on:
   push:
     branches: [ main, master ]
     paths-ignore:
       - 'README.md'
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   update-readme:
+    name: Generate and Sync README
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout Repository
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
+    - name: Set up Python Environment
+      uses: actions/setup-python@v5
       with:
         python-version: '3.x'
 
-    - name: Sync with remote
+    - name: Sync with Remote to Prevent Conflicts
       run: |
         git config --global user.name "GitHub Action"
         git config --global user.email "action@github.com"
         git pull --rebase origin main || true
 
-    - name: Generate Smart Suffix Readme
+    - name: Execute Smart Suffix Python Script
       run: |
-        python3 -c "
+        python3 - <<'EOF'
         import os
         import json
         import urllib.parse
         import re
+        import textwrap
 
         GITHUB_USER = 'shalom2552'
-        EXCLUDE_ITEMS = {'generate_portable_readme.py', 'sync_readme.sh', 'stats.json', 'LeetCode.md'}
         
-        header = f'''<div align=\"center\">
+        # Updated Exclude Items to match your cleaned-up repo
+        EXCLUDE_ITEMS = {'port.py', 'stats.json', 'LeetCode.md', 'README.md'}
+        
+        # Folders to ignore from becoming table rows
+        EXCLUDE_FOLDERS = {'LeetCode', 'Easy', 'Medium', 'Hard', '.git', '.github'}
+        
+        # Base header with centered alignment
+        header = textwrap.dedent(f'''
+        <div align="center">
 
         # LeetCode Portfolio
 
@@ -47,31 +64,40 @@ jobs:
         Focused on efficient algorithms, data structures, and clean code standards.
 
         ## Live Stats
-        <p align=\"center\">
-          <img src=\"https://leetcard.jacoblin.cool/{GITHUB_USER}?theme=tokyonight&font=baloo_2&ext=heatmap\" width=\"650\" alt=\"LeetCode Stats\" />
+        <p align="center">
+          <img src="https://leetcard.jacoblin.cool/{GITHUB_USER}?theme=tokyonight&font=baloo_2&ext=heatmap" width="650" alt="LeetCode Stats" />
         </p>
 
         ## Solutions
         | # | Problem | Solutions | Difficulty |
         |:---:|:---|:---:|:---:|
-        '''
+        ''').strip()
 
+        # Load LeetHub stats as a backup only
         stats_data = {}
         if os.path.exists('stats.json'):
             try:
                 with open('stats.json', 'r') as f:
                     stats_data = json.load(f)
-            except:
+            except Exception as e:
                 pass
 
         problems_list = []
         valid_extensions = ('.py', '.cpp', '.c', '.cc', '.java', '.js', '.ts', '.cs', '.go', '.rs', '.rb', '.swift', '.kt')
 
+        # Traverse directory tree
         for root, dirs, files in os.walk('.'):
-            if root == '.' or '.git' in root or '.github' in root:
+            # Skip hidden folders and the root directory itself
+            if '.git' in root or '.github' in root or root == '.':
                 continue
 
             folder_name = os.path.basename(root)
+
+            # Skip the 'LeetCode', 'Easy', 'Medium', 'Hard' category folders from becoming problem rows
+            if folder_name in EXCLUDE_FOLDERS:
+                continue
+
+            # Filter valid code files, ignoring utility scripts
             code_files = [f for f in files if f.lower().endswith(valid_extensions) and f not in EXCLUDE_ITEMS]            
 
             if code_files:
@@ -99,56 +125,59 @@ jobs:
                 
                 solutions_cell = ' '.join(solution_links)
 
+                # Determine Difficulty
                 difficulty = 'Unknown'
                 problem_num = 9999
                 clean_display_name = folder_name.replace('-', ' ').title()
 
-                if folder_name in stats_data:
+                # --- THE NEW BULLETPROOF DIFFICULTY EXTRACTOR ---
+                # Check the name of the folder this problem is sitting inside
+                parent_folder = os.path.basename(os.path.dirname(root))
+                if parent_folder in ['Easy', 'Medium', 'Hard']:
+                    difficulty = parent_folder
+                # Fallback to stats.json just in case a folder got moved manually
+                elif folder_name in stats_data:
                     difficulty = stats_data[folder_name].get('difficulty', 'Unknown')
+                # ------------------------------------------------
                 
                 match = re.search(r'(\d+)', folder_name)
                 if match:
                     problem_num = int(match.group(1))
                     clean_display_name = re.sub(r'^\d+-?', '', folder_name).replace('-', ' ').title()
-                
-                if difficulty == 'Unknown' and 'readme.md' in [f.lower() for f in files]:
-                    try:
-                        readme_name = next(f for f in files if f.lower() == 'readme.md')
-                        with open(os.path.join(root, readme_name), 'r', encoding='utf-8') as f:
-                            content = f.read()
-                            if 'Easy' in content: difficulty = 'Easy'
-                            elif 'Medium' in content: difficulty = 'Medium'
-                            elif 'Hard' in content: difficulty = 'Hard'
-                    except:
-                        pass
 
+                # Build URL links
                 folder_url = urllib.parse.quote(os.path.relpath(root, '.'))
                 slug = clean_display_name.lower().strip().replace(' ', '-')
                 leetcode_link = f'https://leetcode.com/problems/{slug}'
 
+                # Generate Badge
                 colors = {'Easy': 'green', 'Medium': 'orange', 'Hard': 'red', 'Unknown': 'grey'}
                 badge_color = colors.get(difficulty, 'grey')
-                badge = f'<img src=\"https://img.shields.io/badge/-{difficulty}-{badge_color}\" alt=\"{difficulty}\">'
+                badge = f'<img src="https://img.shields.io/badge/-{difficulty}-{badge_color}" alt="{difficulty}">'
                 
+                # Append formatted row to table
                 problems_list.append({
                     'num': problem_num,
                     'line': f'| [{problem_num}]({leetcode_link}) | [{clean_display_name}]({folder_url}) | {solutions_cell} | {badge} |'
                 })
 
+        # Sort problems numerically
         problems_list.sort(key=lambda x: x['num'])
         
-        final_content = header
+        # Assemble Final Markdown
+        final_content = header + '\n'
         for p in problems_list:
-            final_content += p['line'] + '\\n'
+            final_content += p['line'] + '\n'
 
-        final_content += '</div>'
+        final_content += '\n</div>\n'
 
+        # Write to Output File
         with open('README.md', 'w', encoding='utf-8') as f:
             f.write(final_content)
-        "
+        EOF
 
-    - name: Commit and Push
+    - name: Commit and Push Changes
       run: |
         git add README.md
-        git commit -m "docs: auto-update README with latest solutions" || exit 0
+        git commit -m "docs(auto): synchronize README table with latest solutions" || exit 0
         git push
