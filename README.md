@@ -33,6 +33,7 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [121](https://leetcode.com/problems/best-time-to-buy-and-sell-stock) | [Best Time To Buy And Sell Stock](LeetCode/Easy/0121-best-time-to-buy-and-sell-stock) | [cpp](LeetCode/Easy/0121-best-time-to-buy-and-sell-stock/0121-best-time-to-buy-and-sell-stock.cpp) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 | [122](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii) | [Best Time To Buy And Sell Stock Ii](LeetCode/Medium/0122-best-time-to-buy-and-sell-stock-ii) | [cpp](LeetCode/Medium/0122-best-time-to-buy-and-sell-stock-ii/0122-best-time-to-buy-and-sell-stock-ii.cpp) [py](LeetCode/Medium/0122-best-time-to-buy-and-sell-stock-ii/0122-best-time-to-buy-and-sell-stock-ii.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [164](https://leetcode.com/problems/maximum-gap) | [Maximum Gap](LeetCode/Medium/0164-maximum-gap) | [cpp](LeetCode/Medium/0164-maximum-gap/0164-maximum-gap.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
+| [190](https://leetcode.com/problems/reverse-bits) | [Reverse Bits](LeetCode/Easy/0190-reverse-bits) | [c](LeetCode/Easy/0190-reverse-bits/0190-reverse-bits.c) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 | [198](https://leetcode.com/problems/house-robber) | [House Robber](LeetCode/Medium/0198-house-robber) | [cpp](LeetCode/Medium/0198-house-robber/0198-house-robber.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [204](https://leetcode.com/problems/count-primes) | [Count Primes](LeetCode/Medium/0204-count-primes) | [cpp](LeetCode/Medium/0204-count-primes/0204-count-primes.cpp) [py](LeetCode/Medium/0204-count-primes/0204-count-primes.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [215](https://leetcode.com/problems/kth-largest-element-in-an-array) | [Kth Largest Element In An Array](LeetCode/Medium/0215-kth-largest-element-in-an-array) | [py](LeetCode/Medium/0215-kth-largest-element-in-an-array/0215-kth-largest-element-in-an-array.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
@@ -47,15 +48,3 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [1545](https://leetcode.com/problems/find-kth-bit-in-nth-binary-string) | [Find Kth Bit In Nth Binary String](LeetCode/Medium/1545-find-kth-bit-in-nth-binary-string) | [cpp](LeetCode/Medium/1545-find-kth-bit-in-nth-binary-string/1545-find-kth-bit-in-nth-binary-string.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 
 </div>
-
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Divide and Conquer
-| Problem Name | Difficulty |
-| ------- | ------- |
-| [0190-reverse-bits](https://github.com/shalom2552/leetcode/tree/main/LeetCode/Easy/0190-reverse-bits/) | Easy |
-## Bit Manipulation
-| Problem Name | Difficulty |
-| ------- | ------- |
-| [0190-reverse-bits](https://github.com/shalom2552/leetcode/tree/main/LeetCode/Easy/0190-reverse-bits/) | Easy |
-<!---LeetCode Topics End-->
