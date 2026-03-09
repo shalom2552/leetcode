@@ -48,3 +48,15 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [1545](https://leetcode.com/problems/find-kth-bit-in-nth-binary-string) | [Find Kth Bit In Nth Binary String](LeetCode/Medium/1545-find-kth-bit-in-nth-binary-string) | [cpp](LeetCode/Medium/1545-find-kth-bit-in-nth-binary-string/1545-find-kth-bit-in-nth-binary-string.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 
 </div>
+
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Array
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0051-n-queens](https://github.com/shalom2552/leetcode/tree/main/LeetCode/Hard/0051-n-queens/) | Hard |
+## Backtracking
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0051-n-queens](https://github.com/shalom2552/leetcode/tree/main/LeetCode/Hard/0051-n-queens/) | Hard |
+<!---LeetCode Topics End-->
