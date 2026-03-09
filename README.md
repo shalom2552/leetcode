@@ -26,6 +26,7 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [42](https://leetcode.com/problems/trapping-rain-water) | [Trapping Rain Water](LeetCode/Hard/0042-trapping-rain-water) | [cpp](LeetCode/Hard/0042-trapping-rain-water/0042-trapping-rain-water.cpp) [py](LeetCode/Hard/0042-trapping-rain-water/0042-trapping-rain-water.py) | <img src="https://img.shields.io/badge/-Hard-red" alt="Hard"> |
 | [50](https://leetcode.com/problems/powx-n) | [Powx N](LeetCode/Medium/0050-powx-n) | [cpp](LeetCode/Medium/0050-powx-n/0050-powx-n.cpp) [py](LeetCode/Medium/0050-powx-n/0050-powx-n.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [51](https://leetcode.com/problems/n-queens) | [N Queens](LeetCode/Hard/0051-n-queens) | [cpp](LeetCode/Hard/0051-n-queens/0051-n-queens.cpp) | <img src="https://img.shields.io/badge/-Hard-red" alt="Hard"> |
+| [52](https://leetcode.com/problems/n-queens-ii) | [N Queens Ii](LeetCode/Hard/0052-n-queens-ii) | [cpp](LeetCode/Hard/0052-n-queens-ii/0052-n-queens-ii.cpp) | <img src="https://img.shields.io/badge/-Hard-red" alt="Hard"> |
 | [69](https://leetcode.com/problems/sqrtx) | [Sqrtx](LeetCode/Easy/0069-sqrtx) | [cpp](LeetCode/Easy/0069-sqrtx/0069-sqrtx.cpp) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 | [75](https://leetcode.com/problems/sort-colors) | [Sort Colors](LeetCode/Medium/0075-sort-colors) | [cpp](LeetCode/Medium/0075-sort-colors/0075-sort-colors.cpp) [py](LeetCode/Medium/0075-sort-colors/0075-sort-colors.py) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 | [98](https://leetcode.com/problems/validate-binary-search-tree) | [Validate Binary Search Tree](LeetCode/Medium/0098-validate-binary-search-tree) | [cpp](LeetCode/Medium/0098-validate-binary-search-tree/0098-validate-binary-search-tree.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
@@ -49,11 +50,3 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [1545](https://leetcode.com/problems/find-kth-bit-in-nth-binary-string) | [Find Kth Bit In Nth Binary String](LeetCode/Medium/1545-find-kth-bit-in-nth-binary-string) | [cpp](LeetCode/Medium/1545-find-kth-bit-in-nth-binary-string/1545-find-kth-bit-in-nth-binary-string.cpp) | <img src="https://img.shields.io/badge/-Medium-orange" alt="Medium"> |
 
 </div>
-
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Backtracking
-| Problem Name | Difficulty |
-| ------- | ------- |
-| [0052-n-queens-ii](https://github.com/shalom2552/leetcode/tree/main/LeetCode/Hard/0052-n-queens-ii/) | Hard |
-<!---LeetCode Topics End-->
