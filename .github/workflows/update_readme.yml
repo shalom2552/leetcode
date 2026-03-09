@@ -12,6 +12,11 @@ on:
       - 'README.md'
   workflow_dispatch:
 
+# allow one run at a time
+concurrency:
+  group: "update-readme"
+  cancel-in-progress: true
+  
 permissions:
   contents: write
 
