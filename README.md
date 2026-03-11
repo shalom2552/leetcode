@@ -7,7 +7,7 @@ Focused on efficient algorithms, data structures, and clean code standards.
 
 ## Live Stats
 <p align="center">
-  <img src="https://leetcard.jacoblin.cool/shalom2552?theme=tokyonight&font=baloo_2&ext=heatmap" width="650" alt="LeetCode Stats" />
+  <img src="https://leetcard.jacoblin.cool/shalom2552?theme=catppuccinMocha&font=baloo_2&ext=heatmap" width="500" alt="LeetCode Stats" />
 </p>
 
 ## Solutions
