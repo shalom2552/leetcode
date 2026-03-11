@@ -1,4 +1,49 @@
 /*
+Motivation: Hash Set.
+      Put all the numbers in a set so we can find them in O(1).
+      Loop over the array and check if the current number is the start of a
+      sequence. We know it's a start if num - 1 is not in the set. If it is a 
+      start, count the length of the sequence by checking for the next numbers.
+      Keep track of the max length we find.
+Complexity: 
+    Time - O(n): We loop over the array and only count sequences from their 
+        start, so we visit each number at most twice.
+    Space - O(n): We save every number in the set.
+*/
+
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+
+        // create a set from nums
+        unordered_set<int> num_set(nums.begin(), nums.end());
+
+        size_t max_len = 0;
+
+        // count all consecutive sub arrays
+        for (int num : nums) {
+
+            // if num - 1 not in the set it is a start of consecutive sub array
+            if (num_set.find(num - 1) == num_set.end()) {
+                
+                int curr = num;
+                size_t len = 1;
+
+                // count length of consecutive sub array that start from num
+                while (num_set.find(curr + 1) != num_set.end()) {
+                    ++len;
+                    ++curr;
+                }
+
+                max_len = max(max_len, len);
+            }
+        }
+
+    return max_len;
+    }
+};
+
+/*
 Motivation: Union Find.
       Make a custom UnionFind class that tracks the max size of a set.
       Loop over the array and make a set for every number.
@@ -9,7 +54,7 @@ Complexity:
     Space - O(n): We save every number in the maps for parents and sizes
 */
 
-class Solution {
+class SolutionUF {
 public:
     int longestConsecutive(vector<int>& nums) {
         
