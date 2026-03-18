@@ -1,4 +1,14 @@
 /**
+ * Motivation: Linked List Traversal.
+ *     Make a dummy head to easily start building our result list.
+ *     Loop while there are nodes left in l1 or l2, or if we still have a carry left.
+ *     Add the values from l1 and l2 if they exist, and move them to the next node.
+ *     Make a new node with the last digit of our sum (cur % 10).
+ *     Move our sum pointer forward and update the carry for the next loop (cur / 10).
+ * Complexity: 
+ *     Time - O(max(n, m)): We loop through the longest list (lengths n and m).
+ *     Space - O(max(n, m)): The new linked list will be at most the size of the longest list plus 1.
+ * 
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
@@ -41,7 +51,7 @@ public:
             sum_node->next = digit;
             sum_node = sum_node->next;
             
-            // update current sum
+            // update current sum with the reminder
             cur /= 10;
         }
 
