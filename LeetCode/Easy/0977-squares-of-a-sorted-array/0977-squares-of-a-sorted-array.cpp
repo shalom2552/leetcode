@@ -17,17 +17,19 @@ public:
         // indecis to read cur max squer value
         int l = 0;
         int r = nums.size() - 1;
-        int write = nums.size() - 1;
-        vector<int> res(nums.size(), 0);
+        vector<int> res(nums.size());
 
-        while (l <= r) {
+        // write from the end
+        for (int write = nums.size() - 1; write >= 0; --write) {
+            int left_val = nums[l] * nums[l];
+            int right_val = nums[r] * nums[r];
 
             // bigger absulute value means bigger squer value
-            if (abs(nums[l]) > abs(nums[r])) {
-                res[write--] = nums[l] * nums[l];
+            if (left_val > right_val) {
+                res[write] = left_val;
                 ++l;
             } else {
-                res[write--] = nums[r] * nums[r];
+                res[write] = right_val;
                 --r;
             }
         }
