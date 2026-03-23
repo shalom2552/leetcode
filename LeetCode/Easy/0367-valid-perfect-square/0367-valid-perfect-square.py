@@ -14,8 +14,8 @@ class Solution:
             return True
 
         # sqrt(x) < x/2 for all x > 4
-        left = 1            # 1
-        right = num // 2    # 4
+        left = 1
+        right = num // 2
 
         # binary search on the search space
         while left <= right:
