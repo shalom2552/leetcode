@@ -1,8 +1,18 @@
+/*
+Motivation: Augmented Stack.
+      Use a stack of pairs, each pair holds the value and the minimum
+      value at the time it was pushed. When pushing, calculate the min
+      between the new value and the current min. When getting the min,
+      just return the second element from the top pair.
+      If the stack is empty, return INT_MAX so min(val, INT_MAX) picks val.
+Complexity: 
+    Time - O(1): All operations are constant time.
+    Space - O(n): Storing a pair for each element.
+*/
+
 class MinStack {
 public:
-    MinStack() {
-        
-    }
+    MinStack() = default;
     
     void push(int val) {
         int cur_min = std::min(val, getMin());
