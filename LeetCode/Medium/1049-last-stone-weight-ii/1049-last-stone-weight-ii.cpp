@@ -42,7 +42,7 @@ public:
         }
 
         // sum = p1 + p2, answer = p2 - p1 = sum - 2 * p1
-        int closest_half = dp[items_cnt - 1][capacity - 1];
+        int closest_half = dp[stones.size()][sum / 2];
         return sum - 2 * closest_half;
     }
 };
