@@ -13,18 +13,12 @@ public:
     bool isPowerOfFour(int n) {
 
         // pwer of 4 must be positive
-        if (n < 1) {
-            return false;
-        } 
+        if (n < 1) return false;
 
-        int mask = 1;
-        // loop on max size of int (64 / 2) 
-        for (int i = 1; i < 32; ++i) {
+        // shift mask first bit in jumps of 2
+        for(int mask = 1; mask; mask <<= 2) {
             // is the only bit on
-            if (mask == n) {
-                return true;
-            }
-            mask <<= 2; // check next
+            if (mask == n) return true;
         }
 
         return false;
