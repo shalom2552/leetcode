@@ -11,16 +11,20 @@ Complexity:
 */
 class LRUCache {
 public:
-    LRUCache(int capacity) {
-        m_timestamp = 0;
-        m_capacity = capacity;
+    LRUCache(int capacity)
+        : m_timestamp(1)
+        , m_capacity(capacity)
+    {
+        m_cache.reserve(capacity + 1);
     }
     
     int get(int key) {
-        if (!m_cache.count(key)) return -1; // not found
+        auto it = m_cache.find(key);
+        if (it == m_cache.end()) return -1;
+
         update_timestamp(key);
-        m_cache[key].second = m_timestamp;
-        return m_cache[key].first;
+        it->second.second = m_timestamp;
+        return it->second.first;
     }
     
     void put(int key, int value) {    
