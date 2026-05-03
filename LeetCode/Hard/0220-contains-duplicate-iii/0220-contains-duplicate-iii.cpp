@@ -15,7 +15,7 @@ class Solution {
 public:
     bool containsNearbyAlmostDuplicate(vector<int>& nums, int indexDiff, int valueDiff) {
 
-        // initialize a set with indexDiff first elements (allow duplicates)
+        // multiset to hold indexDiff last elements (allow duplicates)
         multiset<int> set;
 
         for (size_t i = 0; i < nums.size(); ++i) {
