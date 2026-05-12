@@ -19,7 +19,8 @@
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
-        
+
+        // empty is symmetric
         if (!root) {
             return true;
         }
