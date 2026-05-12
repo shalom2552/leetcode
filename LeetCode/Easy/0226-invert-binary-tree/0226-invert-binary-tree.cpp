@@ -4,39 +4,23 @@ Motivation: DFS.
 Complexity: 
     Time - O(n): Visit each node once.
     Space - O(h): Recursion stack depth is the height of the tree.
-
-Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
  */
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
         
-        // tree leaf - already inverted
-        if (!root) {
+       // tree leaf - already inverted
+        if (!root || (!root->left && !root->right)) {
             return root;
         }
 
-        // invert left
-        if (root->left) {
-            invertTree(root->left);
-        }
-
-        // invert left
-        if (root->right) {
-            invertTree(root->right);
-        }
+        // invert left and right sub trees
+        invertTree(root->left);
+        invertTree(root->right);
 
         // swap left and right
         std::swap(root->left, root->right);
-        
+
         return root;
     }
 };
