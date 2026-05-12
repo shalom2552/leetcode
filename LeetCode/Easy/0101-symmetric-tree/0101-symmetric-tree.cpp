@@ -50,7 +50,7 @@ private:
         return root;
     }
 
-    static bool trees_equal(TreeNode* root1, TreeNode* root2) {
+    static bool trees_equal(const TreeNode* const root1, const TreeNode* const root2) {
 
         // both leafs
         if (!root1 && !root2) {
