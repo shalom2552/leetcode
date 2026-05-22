@@ -21,8 +21,6 @@ class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int> result;
-        int result_idx = 0;
-
         traverse(root, result);
         return result;
     }
