@@ -45,12 +45,10 @@ public:
         left_node->next = next;
         if (left > 1) {
             prev_left->next = prev;
-        }
-        if (left == 1) {
+            return head;
+        } else {
             return prev;
         }
-
-        return head;
     }
 
 };
