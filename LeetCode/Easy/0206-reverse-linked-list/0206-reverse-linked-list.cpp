@@ -1,7 +1,7 @@
-/**
+/*
  * Motivation: Recursive reversal.
- *     Recurse to the tail of the list, then rewire each node's next
- *     pointer backwards on the way up. The tail becomes the new head.
+ *     Reverse each node's next pointer to point to the previous node.
+ *     Pass the previous and current nodes recursively until the end.
  * Complexity: 
  *     Time - O(n): Visit each node once.
  *     Space - O(n): Recursion stack.
@@ -18,15 +18,20 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        if (!head || !head->next) {
+        if (!head) {
             return head;
         }
+        return reverseHelper(nullptr, head);
+    }
 
-        ListNode* tail = reverseList(head->next);
+    ListNode* reverseHelper(ListNode* prev, ListNode* curr) {
+        if (!curr) {
+            return prev;
+        }
 
-        head->next->next = head;
-        head->next = nullptr;
+        ListNode* next = curr->next;
+        curr->next = prev;
 
-        return tail;
+        return reverseHelper(curr, next);
     }
 };
