@@ -1,10 +1,11 @@
 /*
- * Motivation: Recursive reversal.
- *     Reverse each node's next pointer to point to the previous node.
- *     Pass the previous and current nodes recursively until the end.
+ * Motivation: Iterative reversal.
+ *     Loop over the list and reverse each node's next pointer to point
+ *     to the previous node. Return the last node as the new head.
+ *     If the list was empty the while wont run and empty prev will return.
  * Complexity: 
  *     Time - O(n): Visit each node once.
- *     Space - O(n): Recursion stack.
+ *     Space - O(1): Auxiliary.
  * 
  * Definition for singly-linked list.
  * struct ListNode {
@@ -18,20 +19,17 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        if (!head) {
-            return head;
+        ListNode* prev = nullptr;
+
+        while (head) {
+
+            ListNode* next = head->next;
+            head->next = prev;
+
+            prev = head;
+            head = next;
         }
-        return reverseHelper(nullptr, head);
-    }
 
-    ListNode* reverseHelper(ListNode* prev, ListNode* curr) {
-        if (!curr) {
-            return prev;
-        }
-
-        ListNode* next = curr->next;
-        curr->next = prev;
-
-        return reverseHelper(curr, next);
+        return prev; // new head
     }
 };
