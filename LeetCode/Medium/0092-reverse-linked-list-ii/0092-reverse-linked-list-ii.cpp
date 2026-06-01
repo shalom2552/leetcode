@@ -50,45 +50,5 @@ public:
             return prev;
         }
     }
-    // ListNode* reverseBetween(ListNode* head, int left, int right) {
-    //     if (!head->next) {
-    //         return head;
-    //     }
-
-    //     int idx = 1;
-    //     ListNode* prev = nullptr;
-    //     ListNode* curr = head;
-    //     ListNode* next = curr->next;
-
-    //     // find left node
-    //     while (idx < left) {
-    //         prev = curr;
-    //         curr = curr->next;
-    //         ++idx;
-    //     }
-
-    //     ListNode* prev_left = prev;
-    //     ListNode* left_node = curr;
-
-    //     // reverse until right
-    //     while (idx <= right) {
-
-    //         next = curr->next;
-    //         curr->next = prev;
-
-    //         prev = curr;
-    //         curr = next;
-    //         ++idx;
-    //     }
-
-    //     // connect edges
-    //     left_node->next = next;
-    //     if (left > 1) {
-    //         prev_left->next = prev;
-    //         return head;
-    //     } else {
-    //         return prev;
-    //     }
-    // }
 };
 
