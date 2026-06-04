@@ -7,21 +7,4 @@
 
 class Solution:
     def guessNumber(self, n: int) -> int:
-
-        l, r = 1, n
-
-        while l <= r:            
-
-            mid = l + (r - l) // 2
-            comp = guess(mid)
-
-            if comp == 1:
-                l = mid + 1
-            
-            elif comp == -1:
-                r = mid - 1
-
-            else:
-                return mid
-        
-        return -1     
+        return bisect.bisect_left(range(n), True, key=lambda m: guess(m) <= 0)
