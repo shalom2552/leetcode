@@ -100,5 +100,6 @@ Focused on efficient algorithms, data structures, and clean code standards.
 | [1757](https://leetcode.com/problems/recyclable-and-low-fat-products) | [Recyclable And Low Fat Products](LeetCode/Easy/1757-recyclable-and-low-fat-products) | [py](LeetCode/Easy/1757-recyclable-and-low-fat-products/1757-recyclable-and-low-fat-products.py) [sql](LeetCode/Easy/1757-recyclable-and-low-fat-products/1757-recyclable-and-low-fat-products.sql) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 | [1854](https://leetcode.com/problems/maximum-population-year) | [Maximum Population Year](LeetCode/Easy/1854-maximum-population-year) | [cpp](LeetCode/Easy/1854-maximum-population-year/1854-maximum-population-year.cpp) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 | [2889](https://leetcode.com/problems/reshape-data-pivot) | [Reshape Data Pivot](LeetCode/Easy/2889-reshape-data-pivot) | [py](LeetCode/Easy/2889-reshape-data-pivot/2889-reshape-data-pivot.py) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
+| [3436](https://leetcode.com/problems/find-valid-emails) | [Find Valid Emails](LeetCode/Easy/3436-find-valid-emails) | [py](LeetCode/Easy/3436-find-valid-emails/3436-find-valid-emails.py) | <img src="https://img.shields.io/badge/-Easy-green" alt="Easy"> |
 
 </div>
