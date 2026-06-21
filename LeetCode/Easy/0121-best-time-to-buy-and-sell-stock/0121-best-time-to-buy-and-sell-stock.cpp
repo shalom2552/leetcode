@@ -31,37 +31,3 @@ public:
         return profit;
     }
 };
-
-
-/*
-Motivation: DP.
-      dp[i] = max profit of selling on day i.
-      Loop over the array and update the dp with the price diff from yesterday.
-      If the current profit is negative we'll put 0.
-      The result is the max value in the dp array.
-Complexity: 
-    Time - O(n): looping over the array once
-    Space - O(n): Store the dp for every day
-*/
-class SolutionDP {
-public:
-    int maxProfit(vector<int>& prices) {
-        
-        // dp[i] = max profit of selling on day i
-        std::vector<int> dp(prices.size(), 0);
-
-        // loop over days and update the dp
-        for (std::size_t i = 1; i < prices.size(); ++i) {
-
-            // the price change from yesterday
-            int diff = prices[i] - prices[i-1];
-
-            // put 0 if there is no profit
-            dp[i] = std::max(0, dp[i-1] +diff);
-        }
-
-        // max profit selling from all days
-        int profit = *std::max_element(dp.begin(), dp.end());
-        return profit;
-    }
-};
